@@ -1,0 +1,43 @@
+$date
+	Tue Dec 28 14:44:51 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_testbench $end
+$scope module dut $end
+$var wire 8 ! A [7:0] $end
+$var reg 3 " Y [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 "
+b1 !
+$end
+#100000
+b1 "
+b10 !
+#200000
+b10 "
+b100 !
+#300000
+b11 "
+b1000 !
+#400000
+b100 "
+b10000 !
+#500000
+b101 "
+b100000 !
+#600000
+b110 "
+b1000000 !
+#700000
+b111 "
+b10000000 !
+#800000

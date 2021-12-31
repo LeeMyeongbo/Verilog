@@ -1,0 +1,76 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002012ac9bd20 .scope module, "tb_testbench" "tb_testbench" 2 1;
+ .timescale -9 -12;
+v000002012ac96430_0 .net "n1", 0 0, v000002012ab86de0_0;  1 drivers
+v000002012ac964d0_0 .net "n2", 0 0, v000002012ac96390_0;  1 drivers
+v000002012ac96570_0 .net "n3", 0 0, L_000002012ab86e80;  1 drivers
+E_000002012ab75180 .event anyedge, v000002012ab852f0_0, v000002012ac96e80_0, v000002012ac9beb0_0;
+S_000002012ab86a20 .scope module, "dut" "or_gate" 2 6, 3 1 0, S_000002012ac9bd20;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "in1";
+    .port_info 1 /INPUT 1 "in2";
+    .port_info 2 /OUTPUT 1 "out";
+L_000002012ab86e80 .functor OR 1, v000002012ab86de0_0, v000002012ac96390_0, C4<0>, C4<0>;
+v000002012ac9beb0_0 .net "in1", 0 0, v000002012ab86de0_0;  alias, 1 drivers
+v000002012ac96e80_0 .net "in2", 0 0, v000002012ac96390_0;  alias, 1 drivers
+v000002012ab852f0_0 .net "out", 0 0, L_000002012ab86e80;  alias, 1 drivers
+S_000002012ab86bb0 .scope module, "tester" "or_test" 2 5, 4 3 0, S_000002012ac9bd20;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "t1";
+    .port_info 1 /OUTPUT 1 "t2";
+    .port_info 2 /INPUT 1 "p";
+v000002012ab86d40_0 .net "p", 0 0, L_000002012ab86e80;  alias, 1 drivers
+v000002012ab86de0_0 .var "t1", 0 0;
+v000002012ac96390_0 .var "t2", 0 0;
+    .scope S_000002012ab86bb0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v000002012ab86de0_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v000002012ac96390_0, 0;
+    %delay 100000, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v000002012ab86de0_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v000002012ac96390_0, 0;
+    %delay 100000, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v000002012ab86de0_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v000002012ac96390_0, 0;
+    %delay 100000, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v000002012ab86de0_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v000002012ac96390_0, 0;
+    %delay 100000, 0;
+    %vpi_call 4 27 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000002012ac9bd20;
+T_1 ;
+    %wait E_000002012ab75180;
+    %vpi_call 2 9 "$display", "%b %b %b", v000002012ac96430_0, v000002012ac964d0_0, v000002012ac96570_0 {0 0 0};
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_000002012ac9bd20;
+T_2 ;
+    %vpi_call 2 13 "$dumpfile", "tb_test_out.vcd" {0 0 0};
+    %vpi_call 2 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002012ab86a20 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "tb_testbench.v";
+    "or_gate.v";
+    "or_test.v";

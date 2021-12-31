@@ -1,0 +1,80 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002a66d6e6580 .scope module, "tb_testbench" "tb_testbench" 2 6;
+ .timescale -9 -12;
+v000002a66d6f0f00_0 .net "A", 1 0, v000002a66d6f1720_0;  1 drivers
+v000002a66d6f19a0_0 .net "Y", 3 0, L_000002a66d6f1ae0;  1 drivers
+E_000002a66d63a4d0 .event anyedge, v000002a66d6f63b0_0, v000002a66d636b40_0;
+S_000002a66d63df70 .scope module, "dut" "decoder" 2 14, 3 2 0, S_000002a66d6e6580;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 2 "A";
+    .port_info 1 /OUTPUT 4 "Y";
+v000002a66d636b40_0 .net "A", 1 0, v000002a66d6f1720_0;  alias, 1 drivers
+v000002a66d6f63b0_0 .net "Y", 3 0, L_000002a66d6f1ae0;  alias, 1 drivers
+v000002a66d6367a0_0 .net *"_ivl_10", 0 0, L_000002a66d6f1b80;  1 drivers
+L_000002a66d73fa68 .functor BUFT 1, C4<10>, C4<0>, C4<0>, C4<0>;
+v000002a66d63e100_0 .net/2u *"_ivl_14", 1 0, L_000002a66d73fa68;  1 drivers
+v000002a66d63e1a0_0 .net *"_ivl_16", 0 0, L_000002a66d6f1180;  1 drivers
+L_000002a66d73f9d8 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v000002a66d63e240_0 .net/2u *"_ivl_2", 1 0, L_000002a66d73f9d8;  1 drivers
+L_000002a66d73fab0 .functor BUFT 1, C4<11>, C4<0>, C4<0>, C4<0>;
+v000002a66d63e2e0_0 .net/2u *"_ivl_21", 1 0, L_000002a66d73fab0;  1 drivers
+v000002a66d63e380_0 .net *"_ivl_23", 0 0, L_000002a66d6f10e0;  1 drivers
+v000002a66d6f1a40_0 .net *"_ivl_4", 0 0, L_000002a66d6f1360;  1 drivers
+L_000002a66d73fa20 .functor BUFT 1, C4<01>, C4<0>, C4<0>, C4<0>;
+v000002a66d6f1d60_0 .net/2u *"_ivl_8", 1 0, L_000002a66d73fa20;  1 drivers
+L_000002a66d6f1360 .cmp/eq 2, v000002a66d6f1720_0, L_000002a66d73f9d8;
+L_000002a66d6f1b80 .cmp/eq 2, v000002a66d6f1720_0, L_000002a66d73fa20;
+L_000002a66d6f1180 .cmp/eq 2, v000002a66d6f1720_0, L_000002a66d73fa68;
+L_000002a66d6f1ae0 .concat8 [ 1 1 1 1], L_000002a66d6f1360, L_000002a66d6f1b80, L_000002a66d6f1180, L_000002a66d6f10e0;
+L_000002a66d6f10e0 .cmp/eq 2, v000002a66d6f1720_0, L_000002a66d73fab0;
+S_000002a66d73f840 .scope module, "tester" "decoder_test" 2 11, 4 3 0, S_000002a66d6e6580;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 2 "t1";
+    .port_info 1 /INPUT 4 "t2";
+v000002a66d6f1720_0 .var "t1", 1 0;
+v000002a66d6f17c0_0 .net "t2", 3 0, L_000002a66d6f1ae0;  alias, 1 drivers
+    .scope S_000002a66d73f840;
+T_0 ;
+    %pushi/vec4 0, 0, 2;
+    %assign/vec4 v000002a66d6f1720_0, 0;
+    %delay 100000, 0;
+    %pushi/vec4 1, 0, 2;
+    %assign/vec4 v000002a66d6f1720_0, 0;
+    %delay 100000, 0;
+    %pushi/vec4 2, 0, 2;
+    %assign/vec4 v000002a66d6f1720_0, 0;
+    %delay 100000, 0;
+    %pushi/vec4 3, 0, 2;
+    %assign/vec4 v000002a66d6f1720_0, 0;
+    %delay 100000, 0;
+    %vpi_call 4 23 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000002a66d6e6580;
+T_1 ;
+    %wait E_000002a66d63a4d0;
+    %delay 1000, 0;
+    %vpi_call 2 18 "$display", "%2b %4b", v000002a66d6f0f00_0, v000002a66d6f19a0_0 {0 0 0};
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_000002a66d6e6580;
+T_2 ;
+    %vpi_call 2 22 "$dumpfile", "tb_test_out.vcd" {0 0 0};
+    %vpi_call 2 23 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002a66d63df70 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "tb_testbench.v";
+    "decoder.v";
+    "decoder_test.v";

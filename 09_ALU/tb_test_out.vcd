@@ -1,0 +1,64 @@
+$date
+	Tue Dec 28 16:27:28 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_testbench $end
+$scope module dut $end
+$var wire 1 ! RES_AND $end
+$var wire 1 " RES_OR $end
+$var wire 1 # invB $end
+$var wire 1 $ SUM $end
+$var wire 1 % Res $end
+$var wire 1 & B $end
+$var wire 2 ' ALUCtrl [1:0] $end
+$var wire 1 ( A $end
+$scope module add0 $end
+$var wire 1 # B $end
+$var wire 1 ) Cin $end
+$var wire 1 * Cout $end
+$var wire 1 $ S $end
+$var wire 1 ( A $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0*
+0)
+1(
+b0 '
+0&
+1%
+1$
+0#
+1"
+0!
+$end
+#100000
+1*
+1$
+1#
+1%
+1)
+b1 '
+#200000
+0*
+0%
+1$
+0#
+0)
+b10 '
+#300000
+1%
+1*
+1$
+1#
+1)
+b11 '
+#400000

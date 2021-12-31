@@ -1,0 +1,123 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001993cbc8780 .scope module, "tb_testbench" "tb_testbench" 2 5;
+ .timescale -9 -12;
+v000001993cc17620_0 .net "A", 0 0, L_000001993cbbb560;  1 drivers
+v000001993cc18480_0 .net "B", 0 0, L_000001993cbbb5d0;  1 drivers
+v000001993cc17a80_0 .net "C", 0 0, L_000001993cbbb8e0;  1 drivers
+v000001993cc18980_0 .net "D", 0 0, L_000001993cc19d40;  1 drivers
+v000001993cc17b20_0 .net "F", 0 0, v000001993cc185c0_0;  1 drivers
+v000001993cc17c60_0 .net "SEL", 1 0, v000001993cc17580_0;  1 drivers
+E_000001993cbbc230/0 .event anyedge, v000001993cbbb290_0, v000001993cbbae30_0, v000001993cbbb1f0_0, v000001993cbbb0b0_0;
+E_000001993cbbc230/1 .event anyedge, v000001993cc17080_0, v000001993cbba610_0;
+E_000001993cbbc230 .event/or E_000001993cbbc230/0, E_000001993cbbc230/1;
+S_000001993cbc8910 .scope module, "dut" "demux" 2 12, 3 2 0, S_000001993cbc8780;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "F";
+    .port_info 1 /INPUT 2 "sel";
+    .port_info 2 /OUTPUT 1 "A";
+    .port_info 3 /OUTPUT 1 "B";
+    .port_info 4 /OUTPUT 1 "C";
+    .port_info 5 /OUTPUT 1 "D";
+L_000001993cbbb480 .functor NOT 1, L_000001993cc17bc0, C4<0>, C4<0>, C4<0>;
+L_000001993cbbb6b0 .functor NOT 1, L_000001993cc17760, C4<0>, C4<0>, C4<0>;
+L_000001993cbbb4f0 .functor AND 1, L_000001993cbbb480, L_000001993cbbb6b0, C4<1>, C4<1>;
+L_000001993cbbb560 .functor AND 1, v000001993cc185c0_0, L_000001993cbbb4f0, C4<1>, C4<1>;
+L_000001993cbbb640 .functor NOT 1, L_000001993cc17260, C4<0>, C4<0>, C4<0>;
+L_000001993cbbb720 .functor AND 1, L_000001993cbbb640, L_000001993cc18660, C4<1>, C4<1>;
+L_000001993cbbb5d0 .functor AND 1, v000001993cc185c0_0, L_000001993cbbb720, C4<1>, C4<1>;
+L_000001993cbbb790 .functor NOT 1, L_000001993cc17800, C4<0>, C4<0>, C4<0>;
+L_000001993cbbb800 .functor AND 1, L_000001993cc17d00, L_000001993cbbb790, C4<1>, C4<1>;
+L_000001993cbbb8e0 .functor AND 1, v000001993cc185c0_0, L_000001993cbbb800, C4<1>, C4<1>;
+L_000001993cc19790 .functor AND 1, L_000001993cc17e40, L_000001993cc17da0, C4<1>, C4<1>;
+L_000001993cc19d40 .functor AND 1, v000001993cc185c0_0, L_000001993cc19790, C4<1>, C4<1>;
+v000001993cbbb0b0_0 .net "A", 0 0, L_000001993cbbb560;  alias, 1 drivers
+v000001993cbbb1f0_0 .net "B", 0 0, L_000001993cbbb5d0;  alias, 1 drivers
+v000001993cbbae30_0 .net "C", 0 0, L_000001993cbbb8e0;  alias, 1 drivers
+v000001993cbbb290_0 .net "D", 0 0, L_000001993cc19d40;  alias, 1 drivers
+v000001993cbba610_0 .net "F", 0 0, v000001993cc185c0_0;  alias, 1 drivers
+v000001993cbba390_0 .net *"_ivl_1", 0 0, L_000001993cc17bc0;  1 drivers
+v000001993cbba4d0_0 .net *"_ivl_13", 0 0, L_000001993cc17260;  1 drivers
+v000001993cbba570_0 .net *"_ivl_14", 0 0, L_000001993cbbb640;  1 drivers
+v000001993cbba7f0_0 .net *"_ivl_17", 0 0, L_000001993cc18660;  1 drivers
+v000001993cbba890_0 .net *"_ivl_18", 0 0, L_000001993cbbb720;  1 drivers
+v000001993cbba930_0 .net *"_ivl_2", 0 0, L_000001993cbbb480;  1 drivers
+v000001993cbbaa70_0 .net *"_ivl_23", 0 0, L_000001993cc17d00;  1 drivers
+v000001993cc18ca0_0 .net *"_ivl_25", 0 0, L_000001993cc17800;  1 drivers
+v000001993cc173a0_0 .net *"_ivl_26", 0 0, L_000001993cbbb790;  1 drivers
+v000001993cc171c0_0 .net *"_ivl_28", 0 0, L_000001993cbbb800;  1 drivers
+v000001993cc18a20_0 .net *"_ivl_33", 0 0, L_000001993cc17e40;  1 drivers
+v000001993cc18f20_0 .net *"_ivl_35", 0 0, L_000001993cc17da0;  1 drivers
+v000001993cc17440_0 .net *"_ivl_36", 0 0, L_000001993cc19790;  1 drivers
+v000001993cc180c0_0 .net *"_ivl_5", 0 0, L_000001993cc17760;  1 drivers
+v000001993cc183e0_0 .net *"_ivl_6", 0 0, L_000001993cbbb6b0;  1 drivers
+v000001993cc18ac0_0 .net *"_ivl_8", 0 0, L_000001993cbbb4f0;  1 drivers
+v000001993cc17080_0 .net "sel", 1 0, v000001993cc17580_0;  alias, 1 drivers
+L_000001993cc17bc0 .part v000001993cc17580_0, 1, 1;
+L_000001993cc17760 .part v000001993cc17580_0, 0, 1;
+L_000001993cc17260 .part v000001993cc17580_0, 1, 1;
+L_000001993cc18660 .part v000001993cc17580_0, 0, 1;
+L_000001993cc17d00 .part v000001993cc17580_0, 1, 1;
+L_000001993cc17800 .part v000001993cc17580_0, 0, 1;
+L_000001993cc17e40 .part v000001993cc17580_0, 1, 1;
+L_000001993cc17da0 .part v000001993cc17580_0, 0, 1;
+S_000001993cbc8aa0 .scope module, "tester" "demux_test" 2 10, 4 3 0, S_000001993cbc8780;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "t1";
+    .port_info 1 /OUTPUT 2 "t2";
+    .port_info 2 /INPUT 1 "p1";
+    .port_info 3 /INPUT 1 "p2";
+    .port_info 4 /INPUT 1 "p3";
+    .port_info 5 /INPUT 1 "p4";
+v000001993cc17f80_0 .net "p1", 0 0, L_000001993cbbb560;  alias, 1 drivers
+v000001993cc17120_0 .net "p2", 0 0, L_000001993cbbb5d0;  alias, 1 drivers
+v000001993cc174e0_0 .net "p3", 0 0, L_000001993cbbb8e0;  alias, 1 drivers
+v000001993cc176c0_0 .net "p4", 0 0, L_000001993cc19d40;  alias, 1 drivers
+v000001993cc185c0_0 .var "t1", 0 0;
+v000001993cc17580_0 .var "t2", 1 0;
+    .scope S_000001993cbc8aa0;
+T_0 ;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v000001993cc185c0_0, 0;
+    %pushi/vec4 0, 0, 2;
+    %assign/vec4 v000001993cc17580_0, 0;
+    %delay 100000, 0;
+    %pushi/vec4 1, 0, 2;
+    %assign/vec4 v000001993cc17580_0, 0;
+    %delay 100000, 0;
+    %pushi/vec4 2, 0, 2;
+    %assign/vec4 v000001993cc17580_0, 0;
+    %delay 100000, 0;
+    %pushi/vec4 3, 0, 2;
+    %assign/vec4 v000001993cc17580_0, 0;
+    %delay 100000, 0;
+    %vpi_call 4 26 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000001993cbc8780;
+T_1 ;
+    %wait E_000001993cbbc230;
+    %delay 1000, 0;
+    %vpi_call 2 16 "$display", "%b %2b %b %b %b %b", v000001993cc17b20_0, v000001993cc17c60_0, v000001993cc17620_0, v000001993cc18480_0, v000001993cc17a80_0, v000001993cc18980_0 {0 0 0};
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_000001993cbc8780;
+T_2 ;
+    %vpi_call 2 20 "$dumpfile", "tb_test_out.vcd" {0 0 0};
+    %vpi_call 2 21 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001993cbc8910 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "tb_testbench.v";
+    "demux.v";
+    "demux_test.v";
